@@ -13,6 +13,7 @@ import Home from './Home';
 import About from './About';
 import NotFound from './NotFound';
 import Cource from './Cource';
+import Menu from './Menu';
 
 class App extends Component {
   render() {
@@ -23,12 +24,8 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <div className='Menu'>
-            <NavLink exact to='/' className='list-group-item'>Home</NavLink> - 
-            <NavLink to='/about' className='list-group-item'> About</NavLink>
-            <NavLink to='/cource' className='list-group-item'> Cource</NavLink>
-          </div>
-
+          <Menu />
+          
           <div className="App-intro">
             <Switch>
               <Route exact path='/' component={Home} />

@@ -15,6 +15,29 @@ import NotFound from './NotFound';
 import Cource from './Cource';
 import Menu from './Menu';
 
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    main: () => <Home />
+  },
+  {
+    path: '/about',
+    exact: true,
+    main: () => <About />
+  },
+  {
+    path: '/cource',
+    exact: false,
+    main: ({ match }) => <Cource match={ match } />
+  },
+  {
+    path: '',
+    exact: false,
+    main: () => <NotFound />
+  }
+];
+
 class App extends Component {
   render() {
     return (
@@ -27,16 +50,19 @@ class App extends Component {
           <Menu />
           
           <div className="App-intro">
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/about' component={About} />
-              <Route path='/cource' component={Cource} />
-              <Route component={NotFound} />
-            </Switch>
+            <Switch>{ this.getNavMenu(routes) }</Switch>
           </div>
         </div>
       </Router>
     );
+  }
+
+  getNavMenu(routes) {
+    return routes.map((item, index) => {
+      return (
+        <Route key={index} exact={ item.exact } path={ item.path } component={ item.main } />
+      )
+    });
   }
 }
 

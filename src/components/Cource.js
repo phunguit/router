@@ -4,6 +4,7 @@ import {
   Route,
   NavLink
 } from 'react-router-dom';
+import CourceItem from './CourceItem';
 
 class Cource extends Component {
 
@@ -12,9 +13,12 @@ class Cource extends Component {
 
 		return (
 			<div>
-			<NavLink exact to={`${ match.url }/reactjs`} className='list-group-item'>React JS</NavLink>
-			<NavLink exact to={`${ match.url }/javascript`} className='list-group-item'>Javascript</NavLink>
+				<NavLink exact to={`${ match.url }/reactjs`} className='list-group-item'>React JS</NavLink>
+				<NavLink exact to={`${ match.url }/javascript`} className='list-group-item'>Javascript</NavLink>
+			
+				<Route path={`${ match.url }/:cname`} component={CourceItem} />
 			</div>
+			
 		);
 	}
 

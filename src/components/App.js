@@ -5,38 +5,12 @@ import '../App.css';
 import { 
   BrowserRouter as Router,
   Route,
-  Link,
-  NavLink,
   Switch
 } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
-import NotFound from './NotFound';
-import Cource from './Cource';
-import Menu from './Menu';
 
-const routes = [
-  {
-    path: '/',
-    exact: true,
-    main: () => <Home />
-  },
-  {
-    path: '/about',
-    exact: true,
-    main: () => <About />
-  },
-  {
-    path: '/cource',
-    exact: false,
-    main: ({ match }) => <Cource match={ match } />
-  },
-  {
-    path: '',
-    exact: false,
-    main: () => <NotFound />
-  }
-];
+import Menu from './Menu';
+import routes from '../routes/routes-config';
+
 
 class App extends Component {
   render() {
